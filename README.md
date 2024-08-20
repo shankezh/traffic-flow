@@ -19,6 +19,7 @@ k(0, x) = 0.1,  0<x<1 <br />
           0.7,  4<x<5 <br />
           0.9,  5<x<6 <br />
 Refill below code to match initial condition:
+```matlab
 ldfor = LDFormula();
 ldfor.insert(0.1, "inf", 1);
 ldfor.insert(0.5, 1, 2);
@@ -26,6 +27,7 @@ ldfor.insert(0.3, 2, 3);
 ldfor.insert(0.5, 3, 4);
 ldfor.insert(0.7, 4, 5);
 ldfor.insert(0.9, 5, "inf");
+```
 
 Run scrpit directly general.m
 
