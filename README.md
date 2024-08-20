@@ -1,12 +1,12 @@
 This project is used for individual disseration.
 To siplified say, this project achieves general solution for numerical solution of LWR with Riamann problem form, fundamental diagram for mixed traffic flow with platoon intensity (consider CACC, ACC and IDM models).
 
-The files structures:
-general: the general solution for numerical soultion of LWR
--LDformula: subfile, density condition
--WAVE: subfile, records the shockwave or refaction wave and interaction points
--getColorByDensity: subfile, color mapping
-FDs: fundamental diagram for mixed traffic flow
+The files structures:<br />
+-general: the general solution for numerical soultion of LWR<br />
+--LDformula: subfile, density condition<br />
+--WAVE: subfile, records the shockwave or refaction wave and interaction points<br />
+--getColorByDensity: subfile, color mapping<br />
+-FDs: fundamental diagram for mixed traffic flow<br />
 
 ![image](https://github.com/user-attachments/assets/70dfc7b0-990b-4567-be2d-17251162221b)
 
