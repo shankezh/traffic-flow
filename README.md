@@ -12,12 +12,12 @@ The files structures:<br />
 
 ## How to start for general solution:
 for example, the initial condition as below:
-k(0, x) = 0.1,  0<x<1
-          0.5,  1<x<2
-          0.3,  2<x<3
-          0.5,  3<x<4
-          0.7,  4<x<5
-          0.9,  5<x<6 
+k(0, x) = 0.1,  0<x<1 <br />
+          0.5,  1<x<2 <br />
+          0.3,  2<x<3 <br />
+          0.5,  3<x<4 <br />
+          0.7,  4<x<5 <br />
+          0.9,  5<x<6 <br />
 Refill below code to match initial condition:
 ldfor = LDFormula();
 ldfor.insert(0.1, "inf", 1);
