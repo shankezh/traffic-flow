@@ -1,4 +1,4 @@
-This project is used for individual disseration.
+This project is used for individual disseration.<br />
 To siplified say, this project achieves general solution for numerical solution of LWR with Riamann problem form, fundamental diagram for mixed traffic flow with platoon intensity (consider CACC, ACC and IDM models).
 
 The files structures:<br />
