@@ -34,6 +34,7 @@ O = 0;
 % pc = 0.5;
 % ph = 1-pc;
 
+fd_mixed = FD_mixed();
 
 % velocity
 % v_list = [5.56, 8.33, 11.11, 13.89, 16.67, 19.44, 22.22, 25, 27.78, 30.56, 33.33];
@@ -57,28 +58,19 @@ legend_list = [];
 % title_list = ["speed vs density", "speed vs flow rate","density vs flow rate", "speed vs spacing"];
 
 %% general figure
+fd_mixed.settingBasic(l, s0, vf);
+fd_mixed.settingDesiredHeadway(0.6, 1.1, 1.5);
+fd_mixed.settingTimeLag(0, 0.1, 0.4);
 for pc = 0 :0.2: 1
-    ph = 1 - pc;
     fq_list = [];
     density_list = [];
     spacing_list = [];
     speed_list = [];
-    legend_list = [legend_list, "Pc="+pc];
+    legend_list = [legend_list, "Pc="+ pc]
     for v = 0 : 0.01: vf
-        pcc = mPI_C2C(ph, pc, O);
-        pch = mPI_C2H(ph, pc, O);
-        phc = mPI_H2C(ph, pc, O);
-        phh = mPI_H2H(ph, pc, O);
-        s_cacc = S_CACC(v, tc_cacc, td_cacc, l, s0);
-        s_acc = S_ACC(v, tc_acc, td_acc, l, s0);
-        s_idm = S_IDM(v, tc_idm, td_idm, l, s0, vf);
-
-        fq = fundamental_diagram(v, pc, ph, pcc, pch, s_cacc, s_acc, s_idm);
-        density = 1000 / (pc*pcc*s_cacc + pc*pch*s_acc + ph*phc*s_idm + ph*phh*s_idm );
-        spacing = (pc*pcc*s_cacc + pc*pch*s_acc + ph*phc*s_idm + ph*phh*s_idm );
-        if spacing == inf
-            disp([v,pc, s_idm])
-        end
+        fq = fd_mixed.flow_rate(v, pc, O);
+        density = fd_mixed.density(v, pc, O);
+        spacing = fd_mixed.spacing(v, pc, O);
         speed_list = [speed_list, v];
         density_list = [density_list, density];
         spacing_list = [spacing_list, spacing];
@@ -143,6 +135,7 @@ for O = -1 :0.25 : 1
             fq = fundamental_diagram(v, pc, ph, pcc, pch, s_cacc, s_acc, s_idm);
             density = 1000 / (pc*pcc*s_cacc + pc*pch*s_acc + ph*phc*s_idm + ph*phh*s_idm );
             spacing = (pc*pcc*s_cacc + pc*pch*s_acc + ph*phc*s_idm + ph*phh*s_idm );
+            
             if spacing == inf
                 disp([v,pc, s_idm])
             end

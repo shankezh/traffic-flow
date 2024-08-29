@@ -207,7 +207,15 @@ function toFills3DAreas(fills, colors, densities)
 end
 
 function toFills2Dand3DAreas(fills, colors, densities)
-    figure(2);
+    % set figure window attributions size 
+    window_attrs = get(groot);
+    window_size_x = window_attrs.ScreenSize(3);
+    window_size_y = window_attrs.ScreenSize(4);
+
+    f2 = figure(2);
+    % apply setting
+    f2.OuterPosition = [0+100, 0+100, window_size_x/2+100, window_size_y/2+100];
+
     [m,n] = size(fills);
     for i = 2 : m - 1
         fills(i,1) = min(max(fills(i, 1), fills(1,1)), fills(end,1));
